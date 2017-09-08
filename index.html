@@ -61,85 +61,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Hexo建站小结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/08/Hexo建站小结/" class="article-date">
-  <time datetime="2017-09-07T16:00:00.000Z" itemprop="datePublished">2017-09-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/不折腾会死/">不折腾会死</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/08/Hexo建站小结/">Hexo 建站小结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>只给出了比较关键的部分做一个简单说明。</p>
-</blockquote>
-<!-- toc -->
-<ul>
-<li><a href="#安装必要软件并配置">安装必要软件并配置</a><ul>
-<li><a href="#git-ssh">git &amp; ssh</a></li>
-<li><a href="#nodejs">Node.js</a></li>
-<li><a href="#hexo">hexo</a></li>
-</ul>
-</li>
-<li><a href="#github上的设置">GitHub上的设置</a><ul>
-<li><a href="#注册github帐户并创建代码库">注册GitHub帐户并创建代码库</a></li>
-<li><a href="#添加信任ssh-key">添加信任ssh key</a></li>
-</ul>
-</li>
-<li><a href="#创建静态博客">创建静态博客</a></li>
-</ul>
-<!-- tocstop -->
-<h2><span id="安装必要软件并配置">安装必要软件并配置</span></h2><h3><span id="git-amp-ssh">git &amp; ssh</span></h3><p>windows下安装了命令行增强软件<a href="http://cmder.net/" target="_blank" rel="external">cmder</a>后就自带了git和ssh，不用特意安装。</p>
-<p>其中，git需要做一些身份信息设置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;your_github_username&quot;</div><div class="line">$ git config --global user.email &quot;your_github_email&quot;</div></pre></td></tr></table></figure>
-<h3><span id="nodejs">Node.js</span></h3><p><a href="https://nodejs.org/en/download/" target="_blank" rel="external">下载地址</a>，选择LTS版本下载安装即可。</p>
-<h3><span id="hexo">hexo</span></h3><p>安装好<code>Node.js</code>后，使用如下命令安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div></pre></td></tr></table></figure>
-<h2><span id="github上的设置">GitHub上的设置</span></h2><h3><span id="注册github帐户并创建代码库">注册GitHub帐户并创建代码库</span></h3><p>去<a href="https://github.com" target="_blank" rel="external">github</a>上注册一个帐户，并创建相应的代码库，比如你的用户名是<code>test</code>，那么创建的库名字就是<code>test.github.io</code>。</p>
-<h3><span id="添加信任ssh-key">添加信任ssh key</span></h3><p>在电脑端，打开运行窗口，生成公钥：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;your_github_email&quot;</div></pre></td></tr></table></figure>
-<p>默认生成位置是在<code>C:\Users\yourname\.ssh\</code>目录下，用<code>notepad++</code>或者其他编辑文本的软件打开<code>id_rsa.pub</code>文件，将里面所有内容粘贴到GitHub网站中的SSH Key设置中。</p>
-<p>而后用如下命令进行测试：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
-<p>第一次运行会有信任确认，敲yes即可。</p>
-<h2><span id="创建静态博客">创建静态博客</span></h2><p>到你希望的目录下，运行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure>
-<p>以上操作可能需要翻墙。会初始化所有的文件，并生成第一篇测试博客<code>hello-world.md</code>。修改配置文件<code>_config.yml</code>的最后几行如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: git@github.com:your_github_username/your_github_username.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<p>而后依次运行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure>
-<p>即可完成本地博客同github上博客的同步。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/08/Hexo建站小结/" data-id="cj7bg6wlk00005katwdllht7b" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-我的第一篇个人博客" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/09/08/我的第一篇个人博客/" class="article-date">
@@ -172,7 +93,53 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/08/我的第一篇个人博客/" data-id="cj7bg6wlq00015kat58zfm9pi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/08/我的第一篇个人博客/" data-id="cj7bgfq4b00009gatx8q5z6ll" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hexo建站小结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/08/Hexo建站小结/" class="article-date">
+  <time datetime="2017-09-07T16:00:00.000Z" itemprop="datePublished">2017-09-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/不折腾会死/">不折腾会死</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/08/Hexo建站小结/">Hexo 建站小结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>只给出了比较关键的部分做一个简单说明。</p>
+</blockquote>
+<!-- toc -->
+<!-- tocstop -->
+<p>`即可。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/08/Hexo建站小结/" data-id="cj7bgfq4h00019gatzvz85par" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,11 +186,11 @@
       <ul>
         
           <li>
-            <a href="/2017/09/08/Hexo建站小结/">Hexo 建站小结</a>
+            <a href="/2017/09/08/我的第一篇个人博客/">终于折腾好了 Hexo 静态博客站</a>
           </li>
         
           <li>
-            <a href="/2017/09/08/我的第一篇个人博客/">终于折腾好了 Hexo 静态博客站</a>
+            <a href="/2017/09/08/Hexo建站小结/">Hexo 建站小结</a>
           </li>
         
       </ul>
