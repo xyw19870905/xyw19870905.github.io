@@ -94,13 +94,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="咆哮爪の小站">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="软件安装 范例   软件安装安装了Anaconda后，利用conda进行安装： 1$ conda install graphviz 而后即可正常使用。 范例本质上是实现了dot语言的python化，在运行脚本的过程中，依旧会在脚本目录下生成相应的dot文件。 范例如下： 12345678910111213141516171819202122232425import graphviz as gv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用python graphviz绘制流程图">
+<meta property="og:url" content="http://yoursite.com/2017/09/08/利用python graphviz绘制流程图/index.html">
 <meta property="og:site_name" content="咆哮爪の小站">
+<meta property="og:description" content="软件安装 范例   软件安装安装了Anaconda后，利用conda进行安装： 1$ conda install graphviz 而后即可正常使用。 范例本质上是实现了dot语言的python化，在运行脚本的过程中，依旧会在脚本目录下生成相应的dot文件。 范例如下： 12345678910111213141516171819202122232425import graphviz as gv">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ovya242jv.bkt.clouddn.com/g1.png">
+<meta property="og:updated_time" content="2017-09-08T07:48:03.662Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="咆哮爪の小站">
+<meta name="twitter:title" content="利用python graphviz绘制流程图">
+<meta name="twitter:description" content="软件安装 范例   软件安装安装了Anaconda后，利用conda进行安装： 1$ conda install graphviz 而后即可正常使用。 范例本质上是实现了dot语言的python化，在运行脚本的过程中，依旧会在脚本目录下生成相应的dot文件。 范例如下： 12345678910111213141516171819202122232425import graphviz as gv">
+<meta name="twitter:image" content="http://ovya242jv.bkt.clouddn.com/g1.png">
 
 
 
@@ -129,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/08/利用python graphviz绘制流程图/"/>
 
 
 
 
 
-  <title>咆哮爪の小站</title>
+  <title>利用python graphviz绘制流程图 | 咆哮爪の小站</title>
   
 
 
@@ -160,9 +166,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,340 +249,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/Hexo建站小结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xu Yanwei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="咆哮爪の小站">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/08/Hexo建站小结/" itemprop="url">Hexo 建站小结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T00:00:00+08:00">
-                2017-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/不折腾会死/" itemprop="url" rel="index">
-                    <span itemprop="name">不折腾会死</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>只给出了比较关键的部分做一个简单说明。</p>
-</blockquote>
-<!-- toc -->
-<ul>
-<li><a href="#安装必要软件并配置">安装必要软件并配置</a><ul>
-<li><a href="#git-ssh">git &amp; ssh</a></li>
-<li><a href="#nodejs">Node.js</a></li>
-<li><a href="#hexo">hexo</a></li>
-</ul>
-</li>
-<li><a href="#github上的设置">GitHub上的设置</a><ul>
-<li><a href="#注册github帐户并创建代码库">注册GitHub帐户并创建代码库</a></li>
-<li><a href="#添加信任ssh-key">添加信任ssh key</a></li>
-</ul>
-</li>
-<li><a href="#创建静态博客">创建静态博客</a></li>
-<li><a href="#添加toc支持">添加TOC支持</a></li>
-</ul>
-<!-- tocstop -->
-<h2><span id="安装必要软件并配置">安装必要软件并配置</span></h2><h3><span id="git-amp-ssh">git &amp; ssh</span></h3><p>windows下安装了命令行增强软件<a href="http://cmder.net/" target="_blank" rel="external">cmder</a>后就自带了git和ssh，不用特意安装。</p>
-<p>其中，git需要做一些身份信息设置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;your_github_username&quot;</div><div class="line">$ git config --global user.email &quot;your_github_email&quot;</div></pre></td></tr></table></figure>
-<h3><span id="nodejs">Node.js</span></h3><p><a href="https://nodejs.org/en/download/" target="_blank" rel="external">下载地址</a>，选择LTS版本下载安装即可。</p>
-<h3><span id="hexo">hexo</span></h3><p>安装好<code>Node.js</code>后，使用如下命令安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div></pre></td></tr></table></figure>
-<h2><span id="github上的设置">GitHub上的设置</span></h2><h3><span id="注册github帐户并创建代码库">注册GitHub帐户并创建代码库</span></h3><p>去<a href="https://github.com" target="_blank" rel="external">github</a>上注册一个帐户，并创建相应的代码库，比如你的用户名是<code>test</code>，那么创建的库名字就是<code>test.github.io</code>。</p>
-<h3><span id="添加信任ssh-key">添加信任ssh key</span></h3><p>在电脑端，打开运行窗口，生成公钥：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;your_github_email&quot;</div></pre></td></tr></table></figure>
-<p>默认生成位置是在<code>C:\Users\yourname\.ssh\</code>目录下，用<code>notepad++</code>或者其他编辑文本的软件打开<code>id_rsa.pub</code>文件，将里面所有内容粘贴到GitHub网站中的SSH Key设置中。</p>
-<p>而后用如下命令进行测试：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
-<p>第一次运行会有信任确认，敲yes即可。</p>
-<h2><span id="创建静态博客">创建静态博客</span></h2><p>到你希望的目录下，运行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure>
-<p>以上操作可能需要翻墙。会初始化所有的文件，并生成第一篇测试博客<code>hello-world.md</code>。修改配置文件<code>_config.yml</code>的最后几行如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: git@github.com:your_github_username/your_github_username.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<p>而后依次运行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure>
-<p>即可完成本地博客同github上博客的同步。</p>
-<h2><span id="添加toc支持">添加TOC支持</span></h2><p>原生默认是不支持<code>TOC</code>的，需要安装插件<code>hexo-toc</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-toc --save</div></pre></td></tr></table></figure>
-<p>而后修改根目录下的<code>_config.yml</code>，添加如下两行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">toc:</div><div class="line">  maxDepth: 3</div></pre></td></tr></table></figure>
-<p>配置完成后，在文章中需要添加目录的地方添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!-- toc --&gt;</div></pre></td></tr></table></figure>
-<p>即可。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/我的第一篇个人博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xu Yanwei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="咆哮爪の小站">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/08/我的第一篇个人博客/" itemprop="url">终于折腾好了 Hexo 静态博客站</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T00:00:00+08:00">
-                2017-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/不折腾会死/" itemprop="url" rel="index">
-                    <span itemprop="name">不折腾会死</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>反正不折腾会死，总归是要搞点事情的。</p>
-<p>距离注册动力考试还剩下15天，内心忐忑不安，毕竟骗自己容易，骗别人容易，但是骗这个世界，有点难。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -608,9 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/08/利用python graphviz绘制流程图/" itemprop="url">利用python graphviz绘制流程图</a></h1>
+          <h1 class="post-title" itemprop="name headline">利用python graphviz绘制流程图</h1>
         
 
         <div class="post-meta">
@@ -682,9 +353,7 @@
       
 
       
-        
-          
-            <!-- toc -->
+        <!-- toc -->
 <ul>
 <li><a href="#软件安装">软件安装</a></li>
 <li><a href="#范例">范例</a></li>
@@ -700,8 +369,6 @@
 <p><img src="http://ovya242jv.bkt.clouddn.com/g1.png" alt="简单范例"></p>
 <p>其实拥有许多功能，等以后有空了慢慢完善。</p>
 
-          
-        
       
     </div>
     
@@ -718,12 +385,28 @@
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/08/我的第一篇个人博客/" rel="prev" title="终于折腾好了 Hexo 静态博客站">
+                终于折腾好了 Hexo 静态博客站 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -733,10 +416,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -744,6 +428,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -764,8 +452,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -818,6 +515,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">软件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">范例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -931,10 +644,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
