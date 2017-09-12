@@ -358,8 +358,22 @@
 </blockquote>
 <!-- toc -->
 <ul>
+<li><a href="#基本知识">基本知识</a></li>
 <li><a href="#变量">变量</a><ul>
 <li><a href="#变量的赋值">变量的赋值</a></li>
+<li><a href="#字符串变量的操作">字符串变量的操作</a><ul>
+<li><a href="#切片">切片</a></li>
+<li><a href="#替换">替换</a></li>
+<li><a href="#合并">合并</a></li>
+</ul>
+</li>
+<li><a href="#整数变量的操作">整数变量的操作</a></li>
+<li><a href="#内置变量">内置变量</a><ul>
+<li><a href="#date">date</a></li>
+<li><a href="#errorlevel">errorlevel</a></li>
+<li><a href="#time">time</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#io">IO</a></li>
@@ -386,9 +400,19 @@
 </li>
 </ul>
 <!-- tocstop -->
+<h2><span id="基本知识">基本知识</span></h2><ul>
+<li>命令与变量均大小写不敏感，如<code>ERRORLEVEL</code>与<code>errorlevel</code>等价；</li>
+<li>整体而言，bat的变量基本为字符串，但也支持整数的加减乘除与同余；</li>
+</ul>
 <h2><span id="变量">变量</span></h2><h3><span id="变量的赋值">变量的赋值</span></h3><p>采用<code>set</code>语句进行赋值，<code>%varname%</code>引用该变量值：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> var1=12</div><div class="line"><span class="built_in">echo</span> %var1%</div></pre></td></tr></table></figure>
-<p>值得一提的是，bat中的变量类型只有一种：<strong>字符串</strong>。</p>
+<h3><span id="字符串变量的操作">字符串变量的操作</span></h3><h4><span id="切片">切片</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@<span class="built_in">echo</span> off</div><div class="line"><span class="built_in">set</span> ifo=abcdefghijklmnopqrstuvwxyz0123456789</div><div class="line"><span class="built_in">echo</span> 原字符串（第二行为各字符的序号）：</div><div class="line"><span class="built_in">echo</span> %ifo%</div><div class="line"><span class="built_in">echo</span> 123456789012345678901234567890123456</div><div class="line"><span class="built_in">echo</span> 截取前5个字符：</div><div class="line"><span class="built_in">echo</span> %ifo:~0,5%</div><div class="line"><span class="built_in">echo</span> 截取最后5个字符：</div><div class="line"><span class="built_in">echo</span> %ifo:~-5%</div><div class="line"><span class="built_in">echo</span> 截取第一个到倒数第6个字符：</div><div class="line"><span class="built_in">echo</span> %ifo:~0,-5%</div><div class="line"><span class="built_in">echo</span> 从第4个字符开始，截取5个字符：</div><div class="line"><span class="built_in">echo</span> %ifo:~3,5%</div><div class="line"><span class="built_in">echo</span> 从倒数第14个字符开始，截取5个字符：</div><div class="line"><span class="built_in">echo</span> %ifo:~-14,5%</div><div class="line">pause</div></pre></td></tr></table></figure>
+<h4><span id="替换">替换</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> %var:0=kkk% ;0替换为kkk</div><div class="line"><span class="built_in">echo</span> %var:10=kkk% ;10替换为kkk</div><div class="line"><span class="built_in">echo</span> %var:20=kkk%</div><div class="line"><span class="built_in">echo</span> %var:*20=kkk% ;20之前包括20字符串都替换为kkk</div></pre></td></tr></table></figure>
+<h4><span id="合并">合并</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> aa=伟大的中国！</div><div class="line"><span class="built_in">set</span> bb=我为你自豪！</div><div class="line"><span class="built_in">echo</span> %aa%%bb%</div></pre></td></tr></table></figure>
+<h3><span id="整数变量的操作">整数变量的操作</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> var=3</div><div class="line"><span class="built_in">set</span> /a var=%var%+3</div><div class="line"><span class="built_in">echo</span> %var%</div></pre></td></tr></table></figure>
+<h3><span id="内置变量">内置变量</span></h3><h4><span id="date">date</span></h4><p>作用：返回当前日期和星期；</p>
+<h4><span id="errorlevel">errorlevel</span></h4><p>作用：返回上一命令或进程执行的结果，正确返回0；</p>
+<h4><span id="time">time</span></h4><p>作用：返回当前时间；</p>
 <h2><span id="io">IO</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@<span class="built_in">echo</span> off</div><div class="line"><span class="built_in">set</span> /p input=请输入字母A或B：</div><div class="line"><span class="keyword">if</span> <span class="string">"%input%"</span>==<span class="string">"A"</span> <span class="built_in">echo</span> A</div><div class="line"><span class="keyword">if</span> <span class="string">"%input%"</span>==<span class="string">"B"</span> <span class="built_in">echo</span> B</div><div class="line">pause</div><div class="line"><span class="built_in">exit</span></div></pre></td></tr></table></figure>
 <h2><span id="逻辑">逻辑</span></h2><h3><span id="if-判断">IF 判断</span></h3><p>IF有三种基本结构：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">IF [NOT] ERRORLEVEL number <span class="keyword">do</span> <span class="built_in">command</span></div><div class="line">IF [NOT] string1==string2 <span class="keyword">do</span> <span class="built_in">command</span></div><div class="line">IF [NOT] EXIST filename <span class="keyword">do</span> <span class="built_in">command</span></div></pre></td></tr></table></figure>
