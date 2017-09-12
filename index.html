@@ -260,6 +260,203 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/windows中bat脚本的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xu Yanwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咆哮爪の小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/12/windows中bat脚本的使用/" itemprop="url">windows中bat脚本的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-12T00:00:00+08:00">
+                2017-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>本篇内容仅包括一些基本的使用。</p>
+</blockquote>
+<!-- toc -->
+<ul>
+<li><a href="#变量">变量</a><ul>
+<li><a href="#变量的赋值">变量的赋值</a></li>
+</ul>
+</li>
+<li><a href="#io">IO</a></li>
+<li><a href="#逻辑">逻辑</a><ul>
+<li><a href="#if-判断">IF 判断</a></li>
+<li><a href="#goto-跳转">goto 跳转</a></li>
+</ul>
+</li>
+<li><a href="#控制">控制</a><ul>
+<li><a href="#暂停pause">暂停（pause）</a></li>
+<li><a href="#终止exit">终止（exit）</a></li>
+</ul>
+</li>
+<li><a href="#其他">其他</a><ul>
+<li><a href="#关闭回显">关闭回显</a></li>
+<li><a href="#调用其他bat脚本">调用其他bat脚本</a></li>
+</ul>
+</li>
+<li><a href="#常用内置命令">常用内置命令</a><ul>
+<li><a href="#echo">echo</a></li>
+<li><a href="#find">find</a></li>
+<li><a href="#tasklist">tasklist</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h2><span id="变量">变量</span></h2><h3><span id="变量的赋值">变量的赋值</span></h3><p>采用<code>set</code>语句进行赋值，<code>%varname%</code>引用该变量值：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> var1=12</div><div class="line"><span class="built_in">echo</span> %var1%</div></pre></td></tr></table></figure>
+<p>值得一提的是，bat中的变量类型只有一种：<strong>字符串</strong>。</p>
+<h2><span id="io">IO</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@<span class="built_in">echo</span> off</div><div class="line"><span class="built_in">set</span> /p input=请输入字母A或B：</div><div class="line"><span class="keyword">if</span> <span class="string">"%input%"</span>==<span class="string">"A"</span> <span class="built_in">echo</span> A</div><div class="line"><span class="keyword">if</span> <span class="string">"%input%"</span>==<span class="string">"B"</span> <span class="built_in">echo</span> B</div><div class="line">pause</div><div class="line"><span class="built_in">exit</span></div></pre></td></tr></table></figure>
+<h2><span id="逻辑">逻辑</span></h2><h3><span id="if-判断">IF 判断</span></h3><p>IF有三种基本结构：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">IF [NOT] ERRORLEVEL number <span class="keyword">do</span> <span class="built_in">command</span></div><div class="line">IF [NOT] string1==string2 <span class="keyword">do</span> <span class="built_in">command</span></div><div class="line">IF [NOT] EXIST filename <span class="keyword">do</span> <span class="built_in">command</span></div></pre></td></tr></table></figure>
+<p>对于<code>ERRORLEVEL</code>，是bat中的一个内置变量，记录上一命令运行后的情况。当进程或命令成功执行时，该变量的值为0；若发生错误，则该变量的值大于等于1。</p>
+<h3><span id="goto-跳转">goto 跳转</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@<span class="built_in">echo</span> off</div><div class="line"><span class="built_in">set</span> /p input=请输入字母A或B：</div><div class="line"><span class="keyword">if</span> <span class="string">"%input%"</span>==<span class="string">"A"</span> goto A</div><div class="line"><span class="keyword">if</span> <span class="string">"%input%"</span>==<span class="string">"B"</span> goto B</div><div class="line">pause</div><div class="line"><span class="built_in">exit</span></div><div class="line"></div><div class="line">:A</div><div class="line"><span class="built_in">echo</span> 您输入的字母是A</div><div class="line">pause</div><div class="line"><span class="built_in">exit</span></div><div class="line"></div><div class="line">:B</div><div class="line"><span class="built_in">echo</span> 您输入的字母是B</div><div class="line">pause</div><div class="line"><span class="built_in">exit</span></div></pre></td></tr></table></figure>
+<h2><span id="控制">控制</span></h2><h3><span id="暂停pause">暂停（pause）</span></h3><p>会在窗口显示“按任意键继续…”。</p>
+<h3><span id="终止exit">终止（exit）</span></h3><p>会结束当前脚本，退出任务。</p>
+<h2><span id="其他">其他</span></h2><h3><span id="关闭回显">关闭回显</span></h3><p>即每次运行脚本时不会再窗口输出一遍脚本中的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@<span class="built_in">echo</span> off</div></pre></td></tr></table></figure>
+<p>若去掉前面的<code>@</code>，则<code>echo off</code>这条命令会显示。</p>
+<h3><span id="调用其他bat脚本">调用其他bat脚本</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">call test.bat</div></pre></td></tr></table></figure>
+<h2><span id="常用内置命令">常用内置命令</span></h2><h3><span id="echo">echo</span></h3><p>作用：输出字符串、变量值等，<code>echo</code>后的内容都会原样输出；</p>
+<p>范例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> Windows bat 其实也很简单</div></pre></td></tr></table></figure>
+<h3><span id="find">find</span></h3><p>作用：查找某一字符串是否位于另一字符串内，常与管道配合，用于查找某任务是否运行；</p>
+<p>范例：查找QQ是否运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tasklist /nh | find /i <span class="string">"qq.exe"</span></div></pre></td></tr></table></figure>
+<h3><span id="tasklist">tasklist</span></h3><p>作用：列出任务列表；</p>
+<p>范例：查找QQ是否运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tasklist /nh | find /i <span class="string">"qq.exe"</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/Hexo建站小结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -780,7 +977,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -802,7 +999,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
